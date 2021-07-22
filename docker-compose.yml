@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    image: node:12-alpine
+    command: sh -c "yarn install && yarn start"
+    #command: sh -c "yarn create react-app would-you-rather && cd would-you-rather && yarn add prop-types"
+    ports:
+      - 3000:3000
+    working_dir: /would-you-rather
+    volumes:
+      - ./:/would-you-rather:consistent
+    stdin_open: true
+
