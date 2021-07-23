@@ -18,11 +18,12 @@ export function addPoll(poll) {
     }
 }
 
-export function savePollAnswer({ authUser, qid, answer }){
+// authUser = id of auth user, id= PollID, answer = optionOne||option2
+export function savePollAnswer({ authUser, id, answer }){
     return {
         type: SAVE_POLL_ANSWER,
         authUser,
-        qid,
+        id,
         answer,
     }
 
