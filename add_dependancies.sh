@@ -1,20 +1,25 @@
 # !/bin/bash
 
-# any parmeter I want to add in, use dollar sign
+# Any parmeter I want to add in, use dollar sign
 # eg $1 == first param, $2 == second, etc
+# Use $@ to represent all paramenters,
+# $@ expands into parameters based off position,
+# with the first being $1, second $2, etc
 # can name param whatever you want
 
-dependency=$1
 container_name="would-you-rather_app_1"
 
-if [ -z "$dependency" ]
+if [ -z "$@" ]
 then
-    echo "please call script with dependecy you would like to add"
-    echo "./add_dependancies.sh {dependecy}"
+    echo "please call script with dependencies you would like to add, eg:"
+    echo "./add_dependancies.sh {dependency1} {dependency2} ...etc"
 else
-    echo "installing $dependecy"
-    echo "running: yarn add $dependecy, in docker container $container_name"
-    docker exec $container_name yarn add $dependency
+    for dependency in "$@"
+    do
+        echo "installing $dependency"
+        echo "running: yarn add $dependency, in docker container $container_name"
+        docker exec $container_name yarn add $dependency
+    done
 fi
 
 
