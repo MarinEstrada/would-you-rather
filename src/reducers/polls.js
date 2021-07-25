@@ -12,17 +12,17 @@ export default function polls(state = {}, action) {
                 ...state,
                 [action.poll.id]: action.poll,
             }
-        case SAVE_POLL_ANSWER:
-            return {
-                ...state,
-                [action.authUser]: {
-                    ...state[action.authUser],
-                    answers: {
-                        ...state[action.authUser].answers,
-                        answers[action.id]: action.answer
-                    }
-                }
-            }
+//        case SAVE_POLL_ANSWER:
+//            return {
+//                ...state,
+//                [action.authUser]: {
+//                    ...state[action.authUser],
+//                    answers: {
+//                        ...state[action.authUser].answers,
+//                        answers[action.id]: action.answer
+//                    }
+//                }
+//            }
         default:
             return state
     }
