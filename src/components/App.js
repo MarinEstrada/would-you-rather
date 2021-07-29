@@ -1,10 +1,13 @@
-import '../css/App.css';
+import '../index.css';
+import Home from './Home'
 
 function App() {
   return (
-    <div className="App">
+    <div className="center">
       <header className="App-header">
-          <div>bonjour!</div>
+          <div>
+              <Home />
+          </div>
       </header>
     </div>
   );
